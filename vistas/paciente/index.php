@@ -1,5 +1,4 @@
-<?php 
-include_once '../../vistas/templates/header.php'; ?>
+<?php include_once '../../vistas/templates/header.php'; ?>
 
 <h1 class="text-center text-primary mb-4">FORMULARIO DE PACIENTES</h1>
 <div class="row justify-content-center">
@@ -12,10 +11,9 @@ include_once '../../vistas/templates/header.php'; ?>
         </div>
         <div class="row mb-4">
             <div class="col">
-                <label for="Apellido_P" class="form-label text-dark">Apellido de Paciente</label>
-                <input type="text" name="Apellido_P" id="Apellido_P" class="form-control border-primary" required>
+                <label for="Apellido_p" class="form-label text-dark">Apellido de Paciente</label>
+                <input type="text" name="Apellido_p" id="Apellido_p" class="form-control border-primary" required>
             </div>
-        </div>
         </div>
         <div class="row mb-4">
             <div class="col">
@@ -26,8 +24,9 @@ include_once '../../vistas/templates/header.php'; ?>
         <div class="row mb-4">
             <div class="col">
                 <label for="DPI_P" class="form-label text-dark">DPI</label>
-                <input type="date" name="DPI_P" id="DPI_P" class="form-control border-primary" required>
+                <input type="number" name="DPI_P" id="DPI_P" class="form-control border-primary" required>
             </div>
+        </div>
         <div class="row mb-4">
             <div class="col">
                 <button type="submit" class="btn btn-primary w-100">Guardar</button>
@@ -40,6 +39,5 @@ include_once '../../vistas/templates/header.php'; ?>
         </div>
     </form>
 </div>
-
 
 <?php include_once '../../vistas/templates/footer.php'; ?>

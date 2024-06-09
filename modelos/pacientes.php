@@ -4,7 +4,7 @@ require 'Conexion.php';
 class Paciente extends Conexion{
     public $PacienteID;
     public $Nombre_p;
-    public $Apellido_P;
+    public $Apellido_p;
     public $Telefono_P;
     public $DPI_P;
     public $Situacion_p;
@@ -14,7 +14,7 @@ class Paciente extends Conexion{
     {
         $this->PacienteID = $args['PacienteID'] ?? null;
         $this->Nombre_p = $args['Nombre_p'] ?? '';
-        $this->Apellido_P = $args['Apellido_P'] ?? '';
+        $this->Apellido_p = $args['Apellido_p'] ?? '';
         $this->Telefono_P = $args['Telefono_P'] ?? 0;
         $this->DPI_P = $args['DPI_P'] ?? 0;
         $this->Situacion_p = $args['Situacion_p'] ?? '';
@@ -23,9 +23,9 @@ class Paciente extends Conexion{
 
       // METODO PARA INSERTAR
       public function guardar(){
-        $sql = "INSERT into hospital (Nombre_p,
-         Apellido_P, Telefono_P, DPI_P) values ('$this->Nombre_p',
-         '$this->Apellido_P', '$this->Telefono_P', '$this->DPI_P')";
+        $sql = "INSERT into pacientes (Nombre_p,
+         Apellido_p, Telefono_P, DPI_P) values ('$this->Nombre_p',
+         '$this->Apellido_p', '$this->Telefono_P', '$this->DPI_P')";
         $resultado = $this->ejecutar($sql);
         return $resultado; 
     }
@@ -48,8 +48,8 @@ class Paciente extends Conexion{
         if($this->Nombre_p != ''){
             $sql .= " AND Nombre_p like '%$this->Nombre_p%' ";
         }
-        if($this->Apellido_P != ''){
-            $sql .= " AND Apellido_P like'%$this->Apellido_P%' ";
+        if($this->Apellido_p != ''){
+            $sql .= " AND Apellido_p like'%$this->Apellido_p%' ";
         }
 
         $resultado = self::servir($sql);
@@ -64,7 +64,7 @@ class Paciente extends Conexion{
     }
 
     public function modificar(){
-        $sql = "UPDATE Pacientes SET Nombre_p = '$this->Nombre_p', Apellido_P = '$this->Apellido_P', Telefono_P = '$this->Telefono_P', DPI_P = '$this->DPI_P' WHERE PacienteID = $this->PacienteID ";
+        $sql = "UPDATE Pacientes SET Nombre_p = '$this->Nombre_p', Apellido_p = '$this->Apellido_p', Telefono_P = '$this->Telefono_P', DPI_P = '$this->DPI_P' WHERE PacienteID = $this->PacienteID ";
         $resultado = $this->ejecutar($sql);
         return $resultado; 
     }
