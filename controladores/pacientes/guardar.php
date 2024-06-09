@@ -1,17 +1,16 @@
 <?php
 
-require '../../modelos/Cliente.php';
+require '../../modelos/pacientes.php';
 
 
 // VALIDAR INFORMACION
 $_POST['Nombre_p'] = htmlspecialchars($_POST['Nombre_p']);
 $_POST['Apellido_p'] = htmlspecialchars($_POST['Apellido_p']);
-$_POST['FechaNacimiento_p'] = htmlspecialchars($_POST['FechaNacimiento_p']);
-$_POST['Direccion_p'] = htmlspecialchars($_POST['Direccion_p']);
-$_POST['Telefono_p'] = htmlspecialchars($_POST['Telefono_p']);
+$_POST['Telefono_P'] = htmlspecialchars($_POST['Telefono_P']);
+$_POST['DPI_P'] = htmlspecialchars($_POST['DPI_P']);
 
 
-if ($_POST['cli_nombre'] == '' || $_POST['cli_apellido'] == ''|| $_POST['cli_nombre'] == '' || $_POST['cli_apellido'] == '' || $_POST['cli_telefono'] == '') {
+if ($_POST['Nombre_p'] == '' || $_POST['Apellido_p'] == ''|| $_POST['Telefono_P'] == '' || $_POST['DPI_P'] == '' ) {
     // ALERTA PARA VALIDAR DATOS
     $resultado = [
         'mensaje' => 'DEBE VALIDAR LOS DATOS',
@@ -20,10 +19,10 @@ if ($_POST['cli_nombre'] == '' || $_POST['cli_apellido'] == ''|| $_POST['cli_nom
 } else {
     try {
         // REALIZAR CONSULTA
-        $clientes = new Paciente($_POST);
-        $guardar = $clientes->guardar();
+        $Paciente = new Paciente($_POST);
+        $guardar = $Paciente->guardar();
         $resultado = [
-            'mensaje' => 'CLIENTE INSERTADO CORRECTAMENTE',
+            'mensaje' => 'PACIENTE INSERTADO CORRECTAMENTE',
             'codigo' => 1
         ];
     } catch (PDOException $pe) {
@@ -55,7 +54,7 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/cliente/index.php" class="btn btn-primary w-100">Volver al formulario</a>
+        <a href="../../vistas/paciente/index.php" class="btn btn-primary w-100">Volver al formulario</a>
     </div>
 </div>
 
